@@ -1,0 +1,34 @@
+name: caesarpy
+channels:
+  - conda-forge
+  - pyviz
+dependencies:
+  # the basics
+  - python>=3.7
+  - gdal
+  - rasterio
+  - matplotlib
+  - scipy
+  - pandas
+  - geopandas
+  - statsmodels
+  # notebook requires
+  - jupyterlab
+  - voila
+  - rise
+  - ipywidgets
+  - bokeh
+  - nodejs
+  # fancy visualisation requires
+  - vtk
+  - pyvista
+  - pyqt
+  - pyviz_comms
+  - panel
+  - itkwidgets
+  # pip stuff
+  - pip
+  - pip:
+      - richdem
+
+prefix: /srv/conda
