@@ -12,13 +12,17 @@ dependencies:
   - pandas
   - geopandas
   - statsmodels
+  # data visualisation
+  - seaborn
   # notebook requires
-  - jupyterlab
+  - jupyterlab=2
   - voila
   - rise
   - ipywidgets
   - bokeh
   - nodejs
+  - ipympl
+  - jupyter_contrib_nbextensions
   # fancy visualisation requires
   - vtk
   - pyvista

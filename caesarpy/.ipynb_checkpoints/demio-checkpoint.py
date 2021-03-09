@@ -17,7 +17,7 @@ def tif2asc(tiffile, ascfile):
     :return: None
     """
     rio_array = rio.open(tiffile)  # read in tif file
-    data_array = rio_array.read(1)  # assume that elevation is in the first band
+    data_array = rio_array.read(1).astype(float)  # assume that elevation is in the first band
 
     f = open(ascfile, 'w')
     f.write('ncols         {}\n'.format(np.shape(data_array)[1]))
@@ -48,8 +48,8 @@ def tif2asc_resample(tiffile, ascfile, outdxy, cut):
     :return: None
     """
     rio_array = rio.open(tiffile)  # read in tif file
-    in_array = rio_array.read(1)  # assume that elevation is in the first band
-    in_array[in_array == -9999] = np.nan  # replace -9999 with nan
+    in_array = rio_array.read(1).astype(float)  # assume that elevation is in the first band
+    in_array[in_array <= 0] = np.nan  # replace -9999 with nan
 
     indxy = rio_array.transform[0]  # cell size of input DEM
     print('input cell size is {} m'.format(indxy))
