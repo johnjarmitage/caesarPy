@@ -25,7 +25,7 @@ Launch `jupyter_lab` and modify the files as needed.
 Once you have forked and cloned the repo onto your computer in the terminal make git aware that there is an upstream repository:
 
 ```
-cd path/to/caesarpy
+cd path/to/caesarPy
 git remote add upstream git://github.com/johnjarmitage/caesarPy.git
 git fetch upstream
 ```
@@ -33,7 +33,7 @@ Subsequently to update your local copy:
 ```
 git pull upstream master
 ```
-This will pull the upstream version into your computer. You can then push this to the forked copy of the reository in your github account:
+This will pull the upstream version into your computer. You can then push this to the forked copy of the repository in your github account:
 ```
 git push origin master
 ```
