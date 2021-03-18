@@ -30,6 +30,8 @@ dependencies:
   - pyviz_comms
   - panel
   - itkwidgets
+  # interpolation
+  - verde
   # pip stuff
   - pip
   - pip:

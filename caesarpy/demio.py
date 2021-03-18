@@ -30,7 +30,7 @@ def tif2asc(tiffile, ascfile):
     pix = '{0} '
     for i in range(np.shape(data_array)[0]):
         for j in range(np.shape(data_array)[1]):
-            if np.isnan(data_array[i, j] == True):
+            if np.isnan(data_array[i, j]) == True:
                 f.write(pix.format(np.int(-9999)))  # need to replace nan with -9999
             else:
                 f.write(pix.format(data_array[i, j]))
