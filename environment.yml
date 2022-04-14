@@ -1,7 +1,6 @@
 name: caesarpy
 channels:
   - conda-forge
-  - pyviz
 dependencies:
   # the basics
   - python>=3.7
@@ -15,7 +14,7 @@ dependencies:
   # data visualisation
   - seaborn
   # notebook requires
-  - jupyterlab=2
+  - jupyterlab
   - voila
   - rise
   - ipywidgets
@@ -24,13 +23,8 @@ dependencies:
   - ipympl
   - jupyter_contrib_nbextensions
   # fancy visualisation requires
-  - vtk
   - pyvista
-  - pyqt
-  - pyviz_comms
-  - panel
-  - itkwidgets
-  - ipyvtklink
+  - ipygany  
   # data stuff
   - xlrd
   - openpyxl
