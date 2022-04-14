@@ -30,11 +30,16 @@ dependencies:
   - pyviz_comms
   - panel
   - itkwidgets
+  - ipyvtklink
+  # data stuff
+  - xlrd
+  - openpyxl
   # interpolation
   - verde
   # pip stuff
   - pip
   - pip:
       - richdem
+      - pysheds
 
 prefix: /srv/conda
