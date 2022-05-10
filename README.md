@@ -12,7 +12,7 @@
 
 ## A wee presentation for EGU 2022
 
-A notebook as a presentation of course: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/johnjarmitage/caesarPy/HEAD?labpath=notebooks%2FEGU2022%2Fpresentation.ipynb)]
+A notebook as a presentation of course: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/johnjarmitage/caesarPy/HEAD?labpath=notebooks%2FEGU2022%2Fpresentation.ipynb)
 
 ---
 
