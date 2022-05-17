@@ -1,9 +1,10 @@
 .idea/
 .ipynb_checkpoints/
-caesarpy/.ipynb_checkpoints/
-caesarpy/__pycache__/
+caesarpy/.ipynb_checkpoints/elevation_bedrock-checkpoint.ipynb
+caesarpy/__pycache__/__init__.cpython-310.pyc
+caesarpy/__pycache__/demio.cpython-310.pyc
 caesarpy/elevation_bedrock.ipynb
-notebooks/.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/CL_analysis_comparison-checkpoint.ipynb
 notebooks/CL_analysis_comparison.ipynb
 notebooks/Canche-micro-catchment-comparison.png
 notebooks/DEM_D4_Cut_200m_BEST.asc
@@ -11,7 +12,7 @@ notebooks/DEM_bedrock.asc
 notebooks/DEM_bedrock_30cm.asc
 notebooks/DEM_bedrock_3cm.asc
 notebooks/DEM_bedrock_50cm.asc
-notebooks/EGU2022/
+notebooks/EGU2022/.ipynb_checkpoints/
 notebooks/Pommeroy-observations.csv
 notebooks/Pommeroye-DEM.png
 notebooks/Thumbs.db
