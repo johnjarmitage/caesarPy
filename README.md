@@ -10,12 +10,6 @@
 
 ---
 
-## A wee presentation for EGU 2022
-
-A notebook as a presentation of course: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/johnjarmitage/caesarPy/HEAD?labpath=notebooks%2FEGU2022%2Fpresentation.ipynb)
-
----
-
 ### Create the environment
 
 First fork and clone the files to your computer. Then using either [`conda`](https://docs.conda.io/en/latest/miniconda.html) or [`mamba`](https://mamba.readthedocs.io/en/latest/) create the Python environment in the terminal:
