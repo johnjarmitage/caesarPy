@@ -9,3 +9,10 @@ Key dependencies are:
 * `Qgis` that we use for manipulating the DEM. However, `Qgis` is not the only code that can do what we need.
 * `landlab` and in particular the D4 routing algorithm
 
+This directory contains
+
+`dem-preprocessing.ipynb` - a notebook that goes through the steps.
+`crop-dem-to-catchment.py` - a python script that uses `Qgis` to crop the DEM to the catchment.
+`resample-dem.py` - a python script that uses `gdal:warp` via `Qgis` to resample the DEM using mean and minimum methods.
+
+The data is too large to be shared here, but at least you get the idea.
