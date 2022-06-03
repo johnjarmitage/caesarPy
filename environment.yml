@@ -11,10 +11,13 @@ dependencies:
   - pandas
   - geopandas
   - statsmodels
+  # pre-processing
+  - landlab
   # data visualisation
   - seaborn
   # notebook requires
   - jupyterlab
+  - jupyterlab-spellchecker
   - voila
   - rise
   - ipywidgets
