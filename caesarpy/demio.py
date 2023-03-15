@@ -182,14 +182,13 @@ def numpy2asc(array, res, ascfile):
     :param ascfile: output ascii file name (CAESAR expects .asc)
     :return: None
     """
-    rio_array = rio.open(tiffile)  # read in tif file
     
     f = open(ascfile, 'w')
     f.write('ncols         {}\n'.format(np.shape(array)[1]))
     f.write('nrows         {}\n'.format(np.shape(array)[0]))
-    f.write('xllcorner     {}\n'.format(0)
-    f.write('yllcorner     {}\n'.format(0)
-    f.write('cellsize      {}\n'.format(res)
+    f.write('xllcorner     {}\n'.format(0))
+    f.write('yllcorner     {}\n'.format(0))
+    f.write('cellsize      {}\n'.format(res))
     f.write('NODATA_value  -9999\n')
 
     pix = '{0} '
