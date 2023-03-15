@@ -27,6 +27,8 @@ def resample(input_raster, output_raster, resolution, method):
 
 if __name__ == '__main__':
 
+    res = 50
+    
     # Supply path to qgis install location
     qgc.QgsApplication.setPrefixPath("/work/armitagj/nminiconda3/envs/qgis_stable", True)
 
@@ -46,17 +48,21 @@ if __name__ == '__main__':
     # algorithms, etc.
 
     # load DEM
-    path_to_tif = "./remaud/"
+    path_to_tif = "./tet/"
     name_of_tif = "{}dem_clipped.tif".format(path_to_tif)
     display_name = "dem"
     rlayer = qgc.QgsRasterLayer(name_of_tif, display_name)
     if not rlayer.isValid():
         print("Raster layer failed to load!")
     qgc.QgsProject.instance().addMapLayer(rlayer)
+    
+    layer = qgc.QgsProject.instance().mapLayersByName('dem')[0]
+    extent = layer.extent()
+    print(extent)
 
     # resample mean
-    resampled_raster = '{}dem_200m_mean.tif'.format(path_to_tif)
-    resolution = 200
+    resampled_raster = '{}dem_{}m_mean.tif'.format(path_to_tif, res)
+    resolution = res
     method = 5
     """
     0 — Nearest neighbour
@@ -76,8 +82,8 @@ if __name__ == '__main__':
     print(f'Resample result = {result}')
 
     # resample minimum
-    resampled_raster = '{}dem_200m_min.tif'.format(path_to_tif)
-    resolution = 200
+    resampled_raster = '{}dem_{}m_min.tif'.format(path_to_tif, res)
+    resolution = res
     method = 8
     """
     0 — Nearest neighbour

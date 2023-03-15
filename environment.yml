@@ -39,5 +39,6 @@ dependencies:
   - pip:
       - richdem
       - pysheds
+      - OWSLib
 
 prefix: /srv/conda

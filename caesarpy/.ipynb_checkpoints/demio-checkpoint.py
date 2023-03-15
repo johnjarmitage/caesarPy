@@ -111,3 +111,95 @@ def asc2numpy(ascfile):
 
     except:
         print('cannot open {}'.format(ascfile))
+
+        
+def numpy2asc(array, tiffile, ascfile):
+    """
+    Function to convert a geotiff (.tif) file into an ascii file (.asc)
+    :param tiffile: input geotiff file name
+    :param ascfile: output ascii file name (CAESAR expects .asc)
+    :return: None
+    """
+    rio_array = rio.open(tiffile)  # read in tif file
+    
+    f = open(ascfile, 'w')
+    f.write('ncols         {}\n'.format(np.shape(array)[1]))
+    f.write('nrows         {}\n'.format(np.shape(array)[0]))
+    f.write('xllcorner     {}\n'.format((rio_array.transform * (0, rio_array.height))[0]))
+    f.write('yllcorner     {}\n'.format((rio_array.transform * (0, rio_array.height))[1]))
+    f.write('cellsize      {}\n'.format(rio_array.transform[0]))
+    f.write('NODATA_value  -9999\n')
+
+    pix = '{0} '
+    for i in range(np.shape(array)[0]):
+        for j in range(np.shape(array)[1]):
+            if np.isnan(array[i, j]) == True:
+                f.write(pix.format(int(-9999)))  # need to replace nan with -9999
+            elif array[i, j] <= 0:
+                f.write(pix.format(int(-9999)))  # need to replace 0 with -9999
+            else:
+                f.write(pix.format(array[i, j]))
+        f.write("\n")
+    f.close()
+    
+
+def asc2xyz(ascfile):
+    """
+    Function to read in an ascii file (.asc) and return Numpy arrays of X, Y and Z
+    :param ascfile: input ascii file name
+    :return X : a numpy array of x-coordinates
+    :return Y : a numpy array of y-coordinates
+    :return Z : a numpy array of the ascii data
+    """
+
+    try:
+        gdal_data = gdal.Open(ascfile)  # use GDAL to open the ascii fle
+        nx = gdal_data.RasterXSize  # get the number of columns
+        ny = gdal_data.RasterYSize  # get the number of rows
+        geotransform = gdal_data.GetGeoTransform()  # get the geo-transform info
+        ll = (geotransform[0], geotransform[3] + ny * geotransform[5])  # lower left corner
+        ul = (geotransform[0], geotransform[3])   # upper left corner
+        dx = geotransform[1]
+        dy = geotransform[5]
+        Z = gdal_data.ReadAsArray().astype(float)  # convert the data into a numpy array
+        Z[Z <= -9999] = np.nan  # replace -9999 with nan
+        
+        x = np.linspace(ll[0], ll[0] + dx * (nx -1), nx)
+        y = np.linspace(ul[1], ul[1] + dy * (ny -1), ny)
+        X,Y = np.meshgrid(x,y, indexing='xy')
+
+        return X, Y, Z
+
+    except:
+        print('cannot open {}'.format(ascfile))
+
+
+def numpy2asc(array, res, ascfile):
+    """
+    Function to convert a numpy into an ascii file (.asc)
+    :param array: numpy array
+    :param res: cell size
+    :param ascfile: output ascii file name (CAESAR expects .asc)
+    :return: None
+    """
+    rio_array = rio.open(tiffile)  # read in tif file
+    
+    f = open(ascfile, 'w')
+    f.write('ncols         {}\n'.format(np.shape(array)[1]))
+    f.write('nrows         {}\n'.format(np.shape(array)[0]))
+    f.write('xllcorner     {}\n'.format(0)
+    f.write('yllcorner     {}\n'.format(0)
+    f.write('cellsize      {}\n'.format(res)
+    f.write('NODATA_value  -9999\n')
+
+    pix = '{0} '
+    for i in range(np.shape(array)[0]):
+        for j in range(np.shape(array)[1]):
+            if np.isnan(array[i, j]) == True:
+                f.write(pix.format(int(-9999)))  # need to replace nan with -9999
+            elif array[i, j] <= 0:
+                f.write(pix.format(int(-9999)))  # need to replace 0 with -9999
+            else:
+                f.write(pix.format(array[i, j].astype(int)))
+        f.write("\n")
+    f.close()
