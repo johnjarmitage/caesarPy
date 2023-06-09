@@ -199,6 +199,6 @@ def numpy2asc(array, res, ascfile):
             elif array[i, j] <= 0:
                 f.write(pix.format(int(-9999)))  # need to replace 0 with -9999
             else:
-                f.write(pix.format(array[i, j].astype(int)))
+                f.write(pix.format(array[i, j]))
         f.write("\n")
     f.close()

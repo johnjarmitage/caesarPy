@@ -40,5 +40,6 @@ dependencies:
       - richdem
       - pysheds
       - OWSLib
+      - jupyterlab_myst
 
-prefix: /srv/conda
+

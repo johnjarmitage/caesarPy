@@ -48,7 +48,7 @@ if __name__ == '__main__':
     # algorithms, etc.
 
     # load DEM
-    path_to_tif = "./tet/"
+    path_to_tif = "./remaud/"
     name_of_tif = "{}dem_clipped.tif".format(path_to_tif)
     display_name = "dem"
     rlayer = qgc.QgsRasterLayer(name_of_tif, display_name)
