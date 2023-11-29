@@ -17,7 +17,7 @@ This directory contains
 
 The data is too large to be shared here, but at least you get the idea.
 
-To run the python scripts you need to run them in an python environment that has [`qgis`](https://plugins.qgis.org/planet/tag/conda/). For the notebooks that then run the processing, such as the pit filling, they easiest waty would be to us the environment [here](../environment.yml).
+To run the python scripts you need to run them in an python environment that has [`qgis`](https://plugins.qgis.org/planet/tag/conda/). For the notebooks that then run the processing, such as the pit filling, they easiest way would be to use the environment [here](../environment.yml).
 
 ### Rainfall
 
