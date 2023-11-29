@@ -3,7 +3,7 @@ channels:
   - conda-forge
 dependencies:
   # the basics
-  - python>=3.7
+  - python<3.12
   - gdal
   - rasterio
   - matplotlib
@@ -40,6 +40,5 @@ dependencies:
       - richdem
       - pysheds
       - OWSLib
-      - jupyterlab_myst
 
 
