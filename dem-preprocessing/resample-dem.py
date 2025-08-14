@@ -1,4 +1,5 @@
 import os
+import sys
 import qgis.core as qgc
 #from qgis import processing
 
@@ -27,7 +28,7 @@ def resample(input_raster, output_raster, resolution, method):
 
 if __name__ == '__main__':
 
-    res = 50
+    res = sys.argv[1]
     
     # Supply path to qgis install location
     qgc.QgsApplication.setPrefixPath("/work/armitagj/nminiconda3/envs/qgis_stable", True)
@@ -48,8 +49,7 @@ if __name__ == '__main__':
     # algorithms, etc.
 
     # load DEM
-    path_to_tif = "./remaud/"
-    name_of_tif = "{}dem_clipped.tif".format(path_to_tif)
+    name_of_tif =  sys.argv[2]
     display_name = "dem"
     rlayer = qgc.QgsRasterLayer(name_of_tif, display_name)
     if not rlayer.isValid():
@@ -61,7 +61,7 @@ if __name__ == '__main__':
     print(extent)
 
     # resample mean
-    resampled_raster = '{}dem_{}m_mean.tif'.format(path_to_tif, res)
+    resampled_raster = '{}_{}m_mean.tif'.format(name_of_tif.split('.')[0], res)
     resolution = res
     method = 5
     """
@@ -82,7 +82,7 @@ if __name__ == '__main__':
     print(f'Resample result = {result}')
 
     # resample minimum
-    resampled_raster = '{}dem_{}m_min.tif'.format(path_to_tif, res)
+    resampled_raster = '{}_{}m_min.tif'.format(name_of_tif.split('.')[0], res)
     resolution = res
     method = 8
     """

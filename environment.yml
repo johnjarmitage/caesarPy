@@ -24,7 +24,6 @@ dependencies:
   - bokeh
   - nodejs
   - ipympl
-  - jupyter_contrib_nbextensions
   # fancy visualisation requires
   - pyvista
   - ipygany
@@ -40,5 +39,6 @@ dependencies:
       - richdem
       - pysheds
       - OWSLib
+      - gpxpy
 
 

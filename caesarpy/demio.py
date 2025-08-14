@@ -104,7 +104,7 @@ def asc2numpy(ascfile):
         ncols = gdal_data.RasterXSize  # get the number of columns
         nrows = gdal_data.RasterYSize  # get the number of rows
         geotransform = gdal_data.GetGeoTransform()  # get the geo-transform info
-        data_array = gdal_data.ReadAsArray().astype(np.float)  # convert the data into a numpy array
+        data_array = gdal_data.ReadAsArray().astype(float)  # convert the data into a numpy array
         data_array[data_array <= -9999] = np.nan  # replace -9999 with nan
 
         return ncols, nrows, geotransform, data_array
